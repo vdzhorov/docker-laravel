@@ -35,7 +35,7 @@ services:
     mysql:
         image: mysql:${MYSQL_VERSION}
         container_name: ${MYSQL_HOST}
-        restart: always
+        restart: 'on-failure'
         env_file:
             - ".env"
         environment:
@@ -47,3 +47,13 @@ services:
             - "8806:3306"
         volumes:
             - "./data/db/mysql:/var/lib/mysql"
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin:latest
+        restart: 'on-failure'
+        env_file:
+            - ".env"
+        environment:
+            - PMA_HOST=${PMA_HOST}
+            - PMA_ARBITRARY=${PMA_ARBITRARY}
+        ports:
+            - "8080:80"
