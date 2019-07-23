@@ -1,2 +1,2 @@
 composer.lock
-etc/composer/vendor
+web/app/vendor
