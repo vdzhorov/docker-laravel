@@ -24,3 +24,11 @@ services:
             - "./web:${HOME_DIR}"
         env_file:
             - '.env'
+    composer:
+        image: "composer"
+        restart: 'on-failure'
+        volumes:
+            - "./web/app:/app"
+        command: install
+        environment:
+            - COMPOSER_ALLOW_SUPERUSER=${COMPOSER_ALLOW_SUPERUSER}
