@@ -12,7 +12,7 @@ Development of a Laravel application. The NGinx templates are specifially set as
 * PHP 7.1, 7.2 and 7.3
 * MySQL
 * phpMyAdmin
-* Composer
+* Composer (along with binary)
 
 ## Prerequisites [`mandatory`]
 
@@ -55,3 +55,10 @@ Run ```docker-compose up```. You should be able to visit http://<YOUR_ENV_ADDRES
 ### Uploading your project
 
 The local directory ./web/public acts as a document root for your project. Your index.php file should live inside this directory.
+
+### Running composer inside running containers
+
+The default composer path is /usr/local/bin/composer.
+
+1. Run ```docker container ls``` and locate the ID of the container which is set for PHP-FPM.
+2. Run ```docker exec <ID> composer <OPTIONS> <PATH>```
