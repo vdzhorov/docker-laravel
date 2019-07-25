@@ -61,3 +61,6 @@ ENV PATH ./vendor/bin:/app/vendor/bin:$PATH
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV htaccess-protect 0
 RUN curl -s https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer
+
+# Install PHP_CodeSniffer
+RUN composer global require "squizlabs/php_codesniffer=*"
